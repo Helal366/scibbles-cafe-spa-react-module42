@@ -15,7 +15,10 @@ const App = () => {
       newBookmarks = bookmarks.filter((bookmark) => bookmark.id !== blog.id);
       setBookmarks(newBookmarks);
     } else {
-      newBookmarks = [...bookmarks.filter(bookmark => bookmark.id !== blog.id), blog];
+      newBookmarks = [
+        ...bookmarks.filter((bookmark) => bookmark.id !== blog.id),
+        blog,
+      ];
       setBookmarks(newBookmarks);
     }
   };
@@ -29,7 +32,7 @@ const App = () => {
       setMarkReads(newMarkReads);
       const index = readTimes.indexOf(blog.reading_time);
       if (index !== -1) {
-        newReadTimes=[...readTimes];
+        newReadTimes = [...readTimes];
         newReadTimes.splice(index, 1);
         setReadTimes(newReadTimes);
       }
@@ -54,7 +57,7 @@ const App = () => {
       </header>
 
       <main className="main-container flex text-center">
-        <div className="left-container w-[70%] border border-gray-600">
+        <div className="left-container w-[70%]">
           <Blogs
             handleBookmark={handleBookmark}
             handleRead={handleRead}
@@ -63,9 +66,14 @@ const App = () => {
           ></Blogs>
         </div>
 
-        <div className="right-container w-[30%]">
-          <h3 className="aside-heading">Reading Time: {TotalReadTimes}</h3>
-          <h3 className="aside-heading">Bookmarks Count: {bookmarks.length}</h3>
+        <div className="right-container w-[30%] bg-gray-100">
+          <div className="border-b-2 border-b-white">
+            <h3 className="aside-heading">Reading Time: {TotalReadTimes}</h3>
+            <h3 className="aside-heading">
+              Bookmarks Count: {bookmarks.length}
+            </h3>
+          </div>
+
           <div className="font-semibold ">
             {bookmarks.map((bookmark) => (
               <p

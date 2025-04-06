@@ -4,3 +4,6 @@
 .bookmark-container.bookmarked{
     color: rgb(250, 208, 44)
 }
+figure>img{
+    height: 250px;
+}

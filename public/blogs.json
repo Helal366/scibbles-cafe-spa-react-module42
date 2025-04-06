@@ -51,5 +51,76 @@
             "development",
             "resources"
         ]
+    },
+    {
+        "id": 5,
+        "cover": "https://i.ibb.co.com/nNqtWtF3/1-TK-g-Je-Td-U3-BLg-Rn3v-W4-Yj-A.png",
+        "title": "Understanding Asynchronous JavaScript: Callbacks, Promises, and Async/Await",
+        "author_img": "https://i.ibb.co.com/pjGBhwZq/id5.jpg",
+        "author": "Sarah Patel",
+        "posted_date": "March 22, 2023",
+        "reading_time": 7,
+        "hashtags": [
+            "javascript",
+            "async",
+            "programming"
+        ]
+    },
+    {
+        "id": 6,
+        "cover": "https://i.ibb.co.com/k2SMBQB5/cssflextutorials.jpg",
+        "title": "The Ultimate Guide to CSS Flexbox: Align Items and Justify Content",
+        "author_img": "https://i.ibb.co.com/RkrrhxMp/id6.jpg",
+        "author": "Aliya Noor",
+        "posted_date": "February 18, 2023",
+        "reading_time": 6,
+        "hashtags": [
+            "css",
+            "webdesign",
+            "frontend"
+        ]
+    },
+    {
+        "id": 7,
+        "cover": "https://i.ibb.co.com/qLTZR2X9/Python-Basics.jpg",
+        "title": "Beginner’s Guide to Python Programming: Get Started in 2025",
+        "author_img": "https://i.ibb.co.com/BKrp7Rnk/id7.jpg",
+        "author": "John Smith",
+        "posted_date": "January 30, 2023",
+        "reading_time": 8,
+        "hashtags": [
+            "python",
+            "programming",
+            "beginners"
+        ]
+    },
+    {
+        "id": 8,
+        "cover": "https://i.ibb.co.com/6cFnywnF/node-js.png",
+        "title": "Exploring Node.js: A Beginner’s Introduction to Server-Side JavaScript",
+        "author_img": "https://i.ibb.co.com/YmkqkXV/id8.png",
+        "author": "James Turner",
+        "posted_date": "December 15, 2022",
+        "reading_time": 10,
+        "hashtags": [
+            "nodejs",
+            "backend",
+            "webdevelopment"
+        ]
+    },
+    {
+        "id": 9,
+        "cover": "https://i.ibb.co.com/PzC4CHzF/react-functional-components.jpg",
+        "title": "React Hooks: The Future of Functional Components",
+        "author_img": "https://i.ibb.co.com/SDGP0YLL/id9.png",
+        "author": "Mona Raza",
+        "posted_date": "November 10, 2022",
+        "reading_time": 12,
+        "hashtags": [
+            "react",
+            "frontend",
+            "hooks"
+        ]
     }
 ]
+
