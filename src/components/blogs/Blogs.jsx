@@ -38,11 +38,13 @@ const Blogs = ({
     for (let id of storedBookmarksIds) {
       const bookmark = blogs.find((blog) => blog.id === id);
       if (bookmark) {
-        storedBookmarks.push(bookmark);
+        const storedBookmarks2=[...storedBookmarks, bookmark];
+        setBookmarks(storedBookmarks2);
       }
     }
-    setBookmarks(storedBookmarks);
-  }, [blogs]);
+    
+    
+  }, [blogs, setBookmarks]);
 
   return (
     <div>

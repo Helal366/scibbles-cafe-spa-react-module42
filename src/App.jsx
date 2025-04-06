@@ -41,6 +41,7 @@ const App = () => {
     let newMarkReads;
     let newReadTimes;
     if (isRead) {
+      console.log(isRead)
       newMarkReads = markReads.filter((markRead) => markRead.id !== blog.id);
       setMarkReads(newMarkReads);
       const index = readTimes.indexOf(blog.reading_time);
@@ -60,8 +61,10 @@ const App = () => {
       addReadTimesToLocalStorage(blog.reading_time);
       addMarkReadIdToLocalStorage(blog);
     }
+    // console.log(newMarkReads, newReadTimes);
     handleRemoveBookmark(blog.id);
   };
+  // console.log(markReads)
   const TotalReadTimes = readTimes.reduce((acc, cv) => acc + cv, 0);
   const handleRemoveBookmark = (id) => {
     const newBookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
@@ -75,7 +78,7 @@ const App = () => {
       0
     );
     setTotalLocalStorageReadTimes(TotalStorageReadTimes);
-  }, []);
+  }, [readTimes]);
   return (
     <>
       <header>

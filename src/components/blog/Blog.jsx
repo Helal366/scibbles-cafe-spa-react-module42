@@ -25,10 +25,13 @@ const Blog = ({
     for (let markId of storedMarkReadsIds) {
       const markRead = blogs.find((blog) => blog.id === markId);
       if (markRead) {
-        newMarkReads.push(markRead);
+
+        const newMarkReads2=[...newMarkReads, markRead];
+        setMarkReads(newMarkReads2);
       }
     }
-    setMarkReads(newMarkReads);
+    
+    
   }, [blogs, setMarkReads]);
 
   return (
