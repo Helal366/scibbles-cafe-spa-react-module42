@@ -1,9 +1,9 @@
 import React from "react";
-import './Navbar.css'
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav >
+    <nav>
       <div className=" navbar bg-base-100 shadow-sm">
         <div className="flex-1 nav-left">
           <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -22,7 +22,6 @@ const Navbar = () => {
                 />
               </div>
             </div>
-            
           </div>
         </div>
       </div>

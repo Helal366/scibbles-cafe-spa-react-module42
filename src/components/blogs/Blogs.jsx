@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Blogs.css';
 import Blog from '../blog/Blog';
+import { getFromLocalStorage} from '../../utilities/localStorage';
 
-const Blogs = ({handleBookmark, handleRead, bookmarks, markReads}) => {
+const Blogs = ({handleBookmark, handleRead, bookmarks, setBookmarks, markReads, setMarkReads}) => {
     const [blogs, setBlogs]=useState([]);
       useEffect(()=>{
         fetch('blogs.json')
@@ -13,6 +14,19 @@ const Blogs = ({handleBookmark, handleRead, bookmarks, markReads}) => {
         })
       }, []);
 
+      useEffect(()=>{
+        const storedBookmarksIds=getFromLocalStorage();
+          const storedBookmarks=[];
+          for(let id of storedBookmarksIds){
+            const bookmark=blogs.find(blog=>blog.id===id);
+            if(bookmark){
+              storedBookmarks.push(bookmark);
+            }
+          }
+          setBookmarks(storedBookmarks);
+      },[blogs])
+      
+
     return (
         <div>
             <h1 className='blogs-heading'>Available Blogs: {blogs.length}</h1>
@@ -22,7 +36,9 @@ const Blogs = ({handleBookmark, handleRead, bookmarks, markReads}) => {
               handleBookmark={handleBookmark}
               handleRead={handleRead}
               bookmarks={bookmarks}
-              markReads={markReads}></Blog> )
+              markReads={markReads}
+              blogs={blogs}
+              setMarkReads={setMarkReads}></Blog> )
             }
             </div>
         </div>

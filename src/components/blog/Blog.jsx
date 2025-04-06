@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaBookmark } from "react-icons/fa";
 import './Blog.css';
+import { getMarkReadsIdsFromLocalStorage} from '../../utilities/localStorage';
 
-const Blog = ({ blog, handleBookmark, handleRead, bookmarks, markReads }) => {
+const Blog = ({ blog, blogs, handleBookmark, handleRead, bookmarks, markReads, setMarkReads }) => {
   const { cover, author, author_img, hashtags, title } = blog;
   const isBookmarked =bookmarks.filter(bookmark=>bookmark.id===blog.id).length>0;
   // console.log(isBookmarked)
   const isRead =
       markReads.filter((markRead) => markRead.id === blog.id).length > 0;
+
+      useEffect(()=>{
+        const storedMarkReadsIds=getMarkReadsIdsFromLocalStorage();
+        const newMarkReads=[];
+        for(let markId of storedMarkReadsIds){
+          const markRead=blogs.find(blog=>blog.id===markId);
+          if(markRead){
+            newMarkReads.push(markRead)
+          }
+        }
+        setMarkReads(newMarkReads);
+      },[])
     
   return (
     <>
@@ -16,7 +29,7 @@ const Blog = ({ blog, handleBookmark, handleRead, bookmarks, markReads }) => {
           <figure>
             <img src={cover} alt={title} />
           </figure>
-          <div className="">
+          <div>
             <h2 className="card-title">{title}</h2>
             <div className="flex justify-between mb-5 items-center px-4">
               <p className="text-lg font-semibold">{author}</p>
