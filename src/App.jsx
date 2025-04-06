@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/navbar/Navbar";
 import Blogs from "./components/blogs/Blogs";
-import {addToLocalStorage, removeFromLocalStorage,  addReadTimesToLocalStorage, 
-  getReadTimesFromLocalStorage, removeReadTimeFromLocalStorage, 
-  addMarkReadIdToLocalStorage, removeMarkReadsIdFromLocalStorage} from './utilities/localStorage';
-
+import {
+  addToLocalStorage,
+  removeFromLocalStorage,
+  addReadTimesToLocalStorage,
+  getReadTimesFromLocalStorage,
+  removeReadTimeFromLocalStorage,
+  addMarkReadIdToLocalStorage,
+  removeMarkReadsIdFromLocalStorage,
+} from "./utilities/localStorage";
 
 const App = () => {
   const [bookmarks, setBookmarks] = useState([]);
   const [readTimes, setReadTimes] = useState([]);
   const [markReads, setMarkReads] = useState([]);
-  const [totalLocalStorageReadTimes, setTotalLocalStorageReadTimes]=useState(0)
-
+  const [totalLocalStorageReadTimes, setTotalLocalStorageReadTimes] =
+    useState(0);
 
   const handleBookmark = (blog) => {
     const isBookmarked =
@@ -20,14 +25,14 @@ const App = () => {
     if (isBookmarked) {
       newBookmarks = bookmarks.filter((bookmark) => bookmark.id !== blog.id);
       setBookmarks(newBookmarks);
-      removeFromLocalStorage(blog.id)
+      removeFromLocalStorage(blog.id);
     } else {
       newBookmarks = [
         ...bookmarks.filter((bookmark) => bookmark.id !== blog.id),
         blog,
       ];
       setBookmarks(newBookmarks);
-      addToLocalStorage(blog.id)
+      addToLocalStorage(blog.id);
     }
   };
   const handleRead = (blog) => {
@@ -41,19 +46,19 @@ const App = () => {
       const index = readTimes.indexOf(blog.reading_time);
       if (index !== -1) {
         newReadTimes = [...readTimes];
-        const removeTime=newReadTimes.slice(index,index+1);
+        const removeTime = newReadTimes.slice(index, index + 1);
         newReadTimes.splice(index, 1);
         setReadTimes(newReadTimes);
         removeReadTimeFromLocalStorage(removeTime);
-        removeMarkReadsIdFromLocalStorage(blog)
+        removeMarkReadsIdFromLocalStorage(blog);
       }
     } else {
       newMarkReads = [...markReads, blog];
       setMarkReads(newMarkReads);
       newReadTimes = [...readTimes, blog.reading_time];
       setReadTimes(newReadTimes);
-      addReadTimesToLocalStorage(blog.reading_time)
-      addMarkReadIdToLocalStorage(blog)
+      addReadTimesToLocalStorage(blog.reading_time);
+      addMarkReadIdToLocalStorage(blog);
     }
     handleRemoveBookmark(blog.id);
   };
@@ -63,14 +68,14 @@ const App = () => {
     setBookmarks(newBookmarks);
     removeFromLocalStorage(id);
   };
-  useEffect(()=>{
-    const storedReadTimes=getReadTimesFromLocalStorage()
-    // console.log(storedReadTimes)
-    const TotalStorageReadTimes = storedReadTimes.reduce((acc, cv) => acc + cv, 0);
-    // console.log(TotalStorageReadTimes)
-    setTotalLocalStorageReadTimes(TotalStorageReadTimes)
-    // console.log(totalLocalStorageReadTimes)
-}, [])
+  useEffect(() => {
+    const storedReadTimes = getReadTimesFromLocalStorage();
+    const TotalStorageReadTimes = storedReadTimes.reduce(
+      (acc, cv) => acc + cv,
+      0
+    );
+    setTotalLocalStorageReadTimes(TotalStorageReadTimes);
+  }, []);
   return (
     <>
       <header>
@@ -91,7 +96,9 @@ const App = () => {
 
         <div className="right-container w-[30%] bg-gray-100">
           <div className="border-b-2 border-b-white">
-            <h3 className="aside-heading">Reading Time: {totalLocalStorageReadTimes}</h3>
+            <h3 className="aside-heading">
+              Reading Time: {totalLocalStorageReadTimes}
+            </h3>
             <h3 className="aside-heading">
               Bookmarks Count: {bookmarks.length}
             </h3>
