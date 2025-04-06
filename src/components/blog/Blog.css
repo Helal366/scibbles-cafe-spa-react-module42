@@ -1,0 +1,6 @@
+.bookmark-container{
+    transition:all 0.3s ease-in-out;
+}
+.bookmark-container.bookmarked{
+    color: rgb(250, 208, 44)
+}

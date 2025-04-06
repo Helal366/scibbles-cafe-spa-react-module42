@@ -1,0 +1,8 @@
+.blogs-heading{
+    font-size: clamp(1.5rem, calc(2vw + 1rem), 4rem);
+    margin-bottom: 1.4vw;
+}
+/* .blogs-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit minmax(150px, 1fr));
+} */

@@ -1,0 +1,6 @@
+.nav-left{
+    padding-left: min(5rem, 3%);
+}
+.nav-right{
+    padding-right: min(5rem, 3%);
+}

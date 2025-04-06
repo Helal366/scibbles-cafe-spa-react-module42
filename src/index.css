@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
+/* .container {
+    padding: 0 min(5rem, 3%);
+    margin: 0 auto;
+} */
+.main-container{
+    padding-left: min(5rem, 3%);
+    padding-right: min(5rem, 3%);
+}
+.aside-heading{
+    font-size: clamp(0.95rem, calc(1vw + 0.3rem), 2rem);
+}
+h1{font-size: 32px; font-weight: 700; margin: 10px 0;}
+h2{font-size: 24px; font-weight: 700; margin: 10px 0;}
+h3{font-size: 19px; font-weight: 700; margin: 10px 0;}
+h4{font-size: 16px; font-weight: 700; margin: 10px 0;}
+h5{font-size: 13px; font-weight: 600; margin: 10px 0;}
+h6{font-size: 11px; font-weight: 600; margin: 10px 0;}
+ 
+/* @layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+} */
